@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0" >
+  <siteMapNode  url="default.aspx" title="Home" roles="*"  description="Home">
+    <siteMapNode url="" title="Site Management" roles="admin" description="Admin controls">
+      <siteMapNode url="" title="Manage Users"  roles="admin"     description="Users" >
+        <siteMapNode url="~/Account/Register.aspx" title="Add User"  roles="admin"     description="Add User" />
+        <siteMapNode url="~/Account/ManageUsers.aspx"  title="Manage Users" roles="admin" description="Manager Users" />
+      </siteMapNode>
+      <siteMapNode url="" title="Manage Roles"  roles="admin"     description="Roles" >
+        <siteMapNode url="~/Account/ManageRoles.aspx" title="Manage Roles"  roles="admin"      description="Manage Roles" />
+        <siteMapNode url="~/Account/AssignRoles.aspx"  title="Assign Roles" roles="admin" description="Assign Roles" />
+      </siteMapNode>
+    </siteMapNode>
+    <!--<siteMapNode url="~/Business/ManageMessages.aspx" title="Manage Messages" roles="admin" description="Manage Messages"/>
+    <siteMapNode url="~/Business/SalesOrderListing.aspx" title="SO Listing" roles="admin" description="SO Listing"/>
+    <siteMapNode url="~/Business/SalesOrder.aspx" title="Sales Order" roles="admin" description="Sales Order"/>
+    <siteMapNode url="~/Business/CustomerEnquiry.aspx" title="Customer Enquiry" roles="admin" description="Customer Enquiry"/>-->
+    <siteMapNode url="~/Business/StockCheck.aspx" title="Stock Check" roles="admin" description="Stock Check"/>
+    <siteMapNode url="~/Business/StockCheckNew.aspx" title="Stock Check New" roles="admin" description="Stock Check New"/>
+    <siteMapNode url="~/Business/LastPriceList.aspx" title="Last Price List" roles="admin" description="Last Price List"/>
+    
+  </siteMapNode>
+</siteMap>
