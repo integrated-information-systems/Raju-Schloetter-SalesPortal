@@ -182,7 +182,8 @@ Public Class StockCheckNew
             LoadedDataTable.Columns.Add(New DataColumn("ItemCode"))
             LoadedDataTable.Columns.Add(New DataColumn("Description"))
             LoadedDataTable.Columns.Add(New DataColumn("In Stock"))
-            LoadedDataTable.Columns.Add(New DataColumn("Sales Ordered"))
+            LoadedDataTable.Columns.Add(New DataColumn("Committed"))
+            LoadedDataTable.Columns.Add(New DataColumn("Ordered"))
             LoadedDataTable.Columns.Add(New DataColumn("Available"))
 
 
@@ -190,7 +191,7 @@ Public Class StockCheckNew
             CQ._DB = "SAP"
             Dim CustomQueryParameters As New Dictionary(Of String, String)
             Dim Conditionlist1 As New List(Of String)
-            Dim InputQuery1 As String = "Select T2.*, T3.ItemName from (Select  T1.ItemCode, SUM(T1.onHand) as 'OnHand', SUM(T1.IsCommited) as 'IsCommited', SUM(T1.onHand)-SUM(T1.IsCommited) as 'Available'  from OITW T1 Group By ItemCode)  T2  "
+            Dim InputQuery1 As String = "Select T2.*, T3.ItemName from (Select  T1.ItemCode, SUM(T1.onHand) as 'OnHand', SUM(T1.IsCommited) as 'IsCommited', SUM(T1.OnOrder) as 'OnOrder', SUM(T1.onHand)-SUM(T1.IsCommited)+SUM(T1.OnOrder) as 'Available'   from OITW T1 Group By ItemCode)  T2  "
             InputQuery1 = InputQuery1 + " INNER JOIN OITM T3 ON T2.ItemCode=T3.ItemCode "
 
 
@@ -231,7 +232,8 @@ Public Class StockCheckNew
                 DR("ItemCode") = Row("ItemCode")
                 DR("Description") = Row("ItemName")
                 DR("In Stock") = Row("OnHand")
-                DR("Sales Ordered") = Row("IsCommited")
+                DR("Committed") = Row("IsCommited")
+                DR("Ordered") = Row("OnOrder")
                 DR("Available") = Row("Available")
                 LoadedDataTable.Rows.Add(DR)
             Next
